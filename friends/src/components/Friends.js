@@ -4,6 +4,13 @@ import AddFriend from './AddFriend';
 
 const Friends = () => {
     const [friends, setFriends] = useState([]);
+    const [showForm, setShowForm] = useState(false);
+
+    const handleClick = (event) => {
+        event.preventDefault();
+        setShowForm(!showForm)
+    }
+
     useEffect(()=>{
         axiosWithAuth()
         .get('/friends')
@@ -24,7 +31,8 @@ const Friends = () => {
                     </div>
                 )
             })}
-            <AddFriend />
+            {!showForm ? <button onClick={handleClick}>Add Friend</button> : null}
+            {showForm ? <AddFriend setShowForm={setShowForm} /> : null}
         </div>
     )
 }

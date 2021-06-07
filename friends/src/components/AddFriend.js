@@ -8,7 +8,7 @@ const initialState = {
     id: Date.now()
 }
 
-const AddFriend = () => {
+const AddFriend = ({ setShowForm }) => {
     const [state, setState] = useState(initialState);
 
     const handleChange = (event) => {
@@ -24,7 +24,9 @@ const AddFriend = () => {
         .post('/friends', state)
         .then(res=>{
             setState(initialState);
+            setShowForm(false)
             console.log(res.status, res.statusText, 'ADDED NEW FRIEND');
+            // window.location.reload();
         })
         .catch(err=>{
             console.log(err)
