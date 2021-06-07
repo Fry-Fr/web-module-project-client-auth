@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import AddFriend from './AddFriend';
 
 const Friends = () => {
     const [friends, setFriends] = useState([]);
     useEffect(()=>{
         axiosWithAuth()
-        .get('http://localhost:5000/api/friends')
+        .get('/friends')
         .then(res=>{
             setFriends(res.data)
         })
         .catch(err=>{
             console.log(err)
         })
-    },[])
+    },[friends])
 
     return (
         <div>
@@ -23,6 +24,7 @@ const Friends = () => {
                     </div>
                 )
             })}
+            <AddFriend />
         </div>
     )
 }

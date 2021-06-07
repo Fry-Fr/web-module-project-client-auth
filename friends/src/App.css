@@ -29,3 +29,27 @@ a {
   padding: 6px;
   color: #204963;
 }
+
+.add-form {
+  border: 1px solid rebeccapurple;
+  width: 30%;
+  margin: 1rem auto;
+  text-decoration: underline;
+}
+
+.add-form label{
+  color: rebeccapurple;
+  display: flex;
+  flex-flow: column;
+  margin: .5rem auto 1rem;
+}
+
+.add-form input {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+.input-age {
+  width: 20%;
+}
